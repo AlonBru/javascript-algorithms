@@ -8,16 +8,16 @@ describe('PriorityQueue', () => {
   });
 
   it('should insert items to the queue and respect priorities', () => {
-    const priorityQueue = new PriorityQueue();
-
-    priorityQueue.add(10, 1);
-    expect(priorityQueue.peek()).toBe(10);
-
-    priorityQueue.add(5, 2);
-    expect(priorityQueue.peek()).toBe(10);
-
-    priorityQueue.add(100, 0);
-    expect(priorityQueue.peek()).toBe(100);
+      const priorityQueue = new PriorityQueue();
+      
+      priorityQueue.add(10, 1);
+      expect(priorityQueue.peek()).toBe(10);
+      
+      priorityQueue.add(5, 2);
+      expect(priorityQueue.peek()).toBe(10);
+      
+      priorityQueue.add(100, 0);
+      expect(priorityQueue.peek()).toBe(100);
   });
 
   it('should be possible to use objects in priority queue', () => {
@@ -40,9 +40,9 @@ describe('PriorityQueue', () => {
   it('should poll from queue with respect to priorities', () => {
     const priorityQueue = new PriorityQueue();
 
-    priorityQueue.add(10, 1);
-    priorityQueue.add(5, 2);
-    priorityQueue.add(100, 0);
+    priorityQueue.add(10, 1); //[{10,1}]
+    priorityQueue.add(5, 2);//[{10,1},{5,2}]
+    priorityQueue.add(100, 0);//[{10,1},{5,2}]
     priorityQueue.add(200, 0);
 
     expect(priorityQueue.poll()).toBe(100);
@@ -62,6 +62,7 @@ describe('PriorityQueue', () => {
     expect(priorityQueue.peek()).toBe(100);
 
     priorityQueue.changePriority(100, 10);
+    
     priorityQueue.changePriority(10, 20);
 
     expect(priorityQueue.poll()).toBe(200);
